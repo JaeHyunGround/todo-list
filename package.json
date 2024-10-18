@@ -37,7 +37,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
-    "postcss": "^8",
     "prettier": "^3.3.3",
     "styled-components": "^6.1.13",
     "typescript": "^5"

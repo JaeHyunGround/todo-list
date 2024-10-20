@@ -16,12 +16,12 @@ const Header = () => {
       <HeaderContainer>
         <Image
           src={
-            viewportWidth > breakpoints.tablet
+            viewportWidth > breakpoints.mobile
               ? '/images/logo-large.png'
               : '/images/logo-small.png'
           }
           alt="logo"
-          width={viewportWidth > breakpoints.tablet ? 151 : 71}
+          width={viewportWidth > breakpoints.mobile ? 151 : 71}
           height={40}
           onClick={
             pathname === '/' ? () => router.refresh() : () => router.push('/')

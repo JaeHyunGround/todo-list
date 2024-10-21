@@ -1,6 +1,6 @@
 // /items api로 받아오는 TodoItem의 타입
 export interface GetTodoItem {
-  isCompleted: boolean;
+  isCompleted?: boolean;
   name: string;
   id?: number;
 }
@@ -8,5 +8,5 @@ export interface GetTodoItem {
 // /items api로 보내는 TodoItem의 타입
 export interface PostTodoItem {
   name: string;
-  isCompleted: boolean;
+  isCompleted?: boolean;
 }

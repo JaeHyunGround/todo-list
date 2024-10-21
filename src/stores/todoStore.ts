@@ -1,10 +1,10 @@
-import { TodoItem } from '@/types';
+import { GetTodoItem, PostTodoItem } from '@/types';
 import { create } from 'zustand';
 
 interface TodoStore {
-  todos: TodoItem[];
-  setTodos: (todos: TodoItem[]) => void;
-  addTodos: (todo: TodoItem) => void;
+  todos: GetTodoItem[];
+  setTodos: (todos: GetTodoItem[]) => void;
+  addTodos: (todo: PostTodoItem) => void;
 }
 
 const useTodoStore = create<TodoStore>((set) => ({

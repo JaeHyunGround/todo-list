@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { StyledButtonProps } from './Button.type';
+import { breakpoints } from '@/constants/breakpoints';
 
 export const ButtonContainer = styled.section<StyledButtonProps>`
   width: ${(props) => props.width};
@@ -18,4 +19,10 @@ export const ButtonContainer = styled.section<StyledButtonProps>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  > img {
+    @media screen and (min-width: ${breakpoints.mobile + 1}px) {
+      margin-right: 4px;
+    }
+  }
 `;

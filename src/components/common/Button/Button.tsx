@@ -66,7 +66,7 @@ const Button = ({
         src={`/icons/${icon}.png`}
         alt="button icon"
       />
-      &nbsp;&nbsp;{text}
+      {text ? text : null}
     </ButtonContainer>
   );
 };

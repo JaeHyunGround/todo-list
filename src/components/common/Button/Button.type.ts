@@ -6,7 +6,7 @@ export interface ButtonProps {
   fontWeight?: string;
   color?: 'var(--slate-900)' | 'var(--white)';
   background: string;
-  icon: 'check' | 'plus-gray' | 'plus-white' | 'x';
+  icon: 'check' | 'plus-gray' | 'plus-white' | 'x' | 'plus-black';
   buttonIconSize?: number;
   borderRadius?: string;
   borderShadow?: boolean;

@@ -5,6 +5,7 @@ import { CheckItem } from './CheckList.style';
 import { CheckListProps } from './ChexkList.type';
 import { usePatchTodo } from '@/hooks/usePatchTodo';
 import { useRouter } from 'next/navigation';
+import Spinner from '../Spinner/Spinner';
 
 const CheckList = ({ id, name, isCompleted, isDetail }: CheckListProps) => {
   const { mutate: patchTodo } = usePatchTodo();
@@ -21,7 +22,7 @@ const CheckList = ({ id, name, isCompleted, isDetail }: CheckListProps) => {
         }
       />
       {isDetail ? (
-        <input value={name} />
+        <input defaultValue={name} />
       ) : (
         <section onClick={() => router.push(`/item/${id}`)}>{name}</section>
       )}

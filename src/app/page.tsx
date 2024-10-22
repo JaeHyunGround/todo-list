@@ -11,7 +11,7 @@ import { Spinner } from '@/components/common';
 
 export default function Home() {
   const { isLoading } = useFetchTodos();
-  const { mutate: addTodo } = useAddTodo();
+  const { mutate: addTodo, isLoading: addLoading } = useAddTodo();
   const todos = useTodoStore((state) => state.todos);
 
   const methods = useForm({ mode: 'onBlur' });
@@ -30,16 +30,20 @@ export default function Home() {
           <FormProvider {...methods}>
             <SearchBar handleSearchSubmit={handleSubmit} REGISTER={REGISTER} />
           </FormProvider>
-          <ListContainer>
-            <TodoList
-              type="todo"
-              data={todos.filter((todo) => todo.isCompleted === false)}
-            />
-            <TodoList
-              type="done"
-              data={todos.filter((todo) => todo.isCompleted === true)}
-            />
-          </ListContainer>
+          {addLoading ? (
+            <Spinner />
+          ) : (
+            <ListContainer>
+              <TodoList
+                type="todo"
+                data={todos.filter((todo) => todo.isCompleted === false)}
+              />
+              <TodoList
+                type="done"
+                data={todos.filter((todo) => todo.isCompleted === true)}
+              />
+            </ListContainer>
+          )}
         </PageContainer>
       )}
     </>

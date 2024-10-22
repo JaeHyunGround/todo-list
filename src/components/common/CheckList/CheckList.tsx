@@ -5,7 +5,6 @@ import { CheckItem } from './CheckList.style';
 import { CheckListProps } from './ChexkList.type';
 import { usePatchTodo } from '@/hooks/usePatchTodo';
 import { useRouter } from 'next/navigation';
-import Spinner from '../Spinner/Spinner';
 
 const CheckList = ({ id, name, isCompleted, isDetail }: CheckListProps) => {
   const { mutate: patchTodo } = usePatchTodo();

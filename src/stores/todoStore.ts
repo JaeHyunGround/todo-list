@@ -4,13 +4,13 @@ import { create } from 'zustand';
 interface TodoStore {
   todos: GetTodoItem[];
   setTodos: (todos: GetTodoItem[]) => void;
-  addTodos: (todo: PostTodoItem) => void;
+  addTodo: (todo: PostTodoItem) => void;
 }
 
 const useTodoStore = create<TodoStore>((set) => ({
   todos: [],
   setTodos: (todos) => set({ todos }),
-  addTodos: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
+  addTodo: (todo) => set((state) => ({ todos: [todo, ...state.todos] })),
 }));
 
 export default useTodoStore;

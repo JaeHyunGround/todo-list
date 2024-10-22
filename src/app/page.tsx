@@ -7,9 +7,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useFetchTodos } from '@/hooks/useFetchTodos';
 import { useAddTodo } from '@/hooks/useAddTodo';
 import useTodoStore from '@/stores/todoStore';
+import { Spinner } from '@/components/common';
 
 export default function Home() {
-  const { isLoading, isError } = useFetchTodos();
+  const { isLoading } = useFetchTodos();
   const { mutate: addTodo } = useAddTodo();
   const todos = useTodoStore((state) => state.todos);
 
@@ -21,20 +22,26 @@ export default function Home() {
   };
 
   return (
-    <PageContainer>
-      <FormProvider {...methods}>
-        <SearchBar handleSearchSubmit={handleSubmit} REGISTER={REGISTER} />
-      </FormProvider>
-      <ListContainer>
-        <TodoList
-          type="todo"
-          data={todos.filter((todo) => todo.isCompleted === false)}
-        />
-        <TodoList
-          type="done"
-          data={todos.filter((todo) => todo.isCompleted === true)}
-        />
-      </ListContainer>
-    </PageContainer>
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <PageContainer>
+          <FormProvider {...methods}>
+            <SearchBar handleSearchSubmit={handleSubmit} REGISTER={REGISTER} />
+          </FormProvider>
+          <ListContainer>
+            <TodoList
+              type="todo"
+              data={todos.filter((todo) => todo.isCompleted === false)}
+            />
+            <TodoList
+              type="done"
+              data={todos.filter((todo) => todo.isCompleted === true)}
+            />
+          </ListContainer>
+        </PageContainer>
+      )}
+    </>
   );
 }

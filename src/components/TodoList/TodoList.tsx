@@ -41,7 +41,7 @@ const TodoList = ({ type, data }: TodoListProps) => {
           <CheckItem
             key={todo.id}
             id={todo.id!}
-            name={todo.name}
+            name={todo.name!}
             isCompleted={todo.isCompleted!}
             isDetail={false}
           />

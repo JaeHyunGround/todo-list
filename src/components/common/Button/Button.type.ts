@@ -6,11 +6,13 @@ export interface ButtonProps {
   fontWeight?: string;
   color?: 'var(--slate-900)' | 'var(--white)';
   background: string;
-  icon: 'check' | 'plus-gray' | 'plus-white' | 'x' | 'plus-black';
+  icon: 'check' | 'plus-gray' | 'plus-white' | 'x' | 'plus-black' | 'edit';
   buttonIconSize?: number;
+  border?: boolean;
   borderRadius?: string;
   borderShadow?: boolean;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  iconMargin?: boolean;
 }
 
 export interface StyledButtonProps {
@@ -20,6 +22,8 @@ export interface StyledButtonProps {
   fontWeight?: string;
   color?: string;
   background: string;
+  border?: boolean;
   borderRadius?: string;
   borderShadow?: boolean;
+  iconMargin?: boolean;
 }

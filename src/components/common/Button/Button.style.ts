@@ -10,8 +10,7 @@ export const ButtonContainer = styled.section<StyledButtonProps>`
   color: ${(props) => props.color};
   background-color: ${(props) => props.background};
   border-radius: ${(props) => props.borderRadius};
-  border: ${(props) =>
-    props.borderShadow ? '2px solid var(--slate-900)' : 'none'};
+  border: ${(props) => (props.border ? '2px solid var(--slate-900)' : 'none')};
   box-shadow: ${(props) =>
     props.borderShadow ? '5px 5px 0px -2px var(--slate-900)' : 'none'};
 
@@ -22,7 +21,7 @@ export const ButtonContainer = styled.section<StyledButtonProps>`
 
   > img {
     @media screen and (min-width: ${breakpoints.mobile + 1}px) {
-      margin-right: 4px;
+      margin-right: ${(props) => (props.iconMargin ? '4px' : 'none')};
     }
   }
 `;

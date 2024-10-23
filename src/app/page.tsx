@@ -29,21 +29,21 @@ export default function Home() {
         <PageContainer>
           <FormProvider {...methods}>
             <SearchBar handleSearchSubmit={handleSubmit} REGISTER={REGISTER} />
+            {addLoading ? (
+              <Spinner />
+            ) : (
+              <ListContainer>
+                <TodoList
+                  type="todo"
+                  data={todos.filter((todo) => todo.isCompleted === false)}
+                />
+                <TodoList
+                  type="done"
+                  data={todos.filter((todo) => todo.isCompleted === true)}
+                />
+              </ListContainer>
+            )}
           </FormProvider>
-          {addLoading ? (
-            <Spinner />
-          ) : (
-            <ListContainer>
-              <TodoList
-                type="todo"
-                data={todos.filter((todo) => todo.isCompleted === false)}
-              />
-              <TodoList
-                type="done"
-                data={todos.filter((todo) => todo.isCompleted === true)}
-              />
-            </ListContainer>
-          )}
         </PageContainer>
       )}
     </>

@@ -8,6 +8,9 @@
 - 실시간 데이터 업데이트
 - 할 일의 세부 정보 페이지로 이동해 수정, 삭제
 
+## 기술 스택
+Next.js, TypeScript, Zustand, React Query, styled-components
+
 ## 프로젝트 구조
 
 ```plaintext
@@ -36,9 +39,6 @@ src/                  # 소스 코드 디렉토리
 ├── types/            # TypeScript 타입 정의
 └── utils/            # 유틸리티 함수
 ```
-
-## 기술 스택
-Next.js, TypeScript, Zustand, React Query, styled-components
 
 ## 설치 및 실행 방법
 

@@ -2,13 +2,22 @@
 
 import Image from 'next/image';
 import { CheckItemContainer } from './CheckItem.style';
-import { CheckItemProps } from './ChexkItem.type';
+import { CheckItemProps } from './CheckItem.type';
 import { usePatchTodo } from '@/hooks/usePatchTodo';
 import { useRouter } from 'next/navigation';
+import { useFormContext } from 'react-hook-form';
 
-const CheckItem = ({ id, name, isCompleted, isDetail }: CheckItemProps) => {
+const CheckItem = ({
+  id,
+  name,
+  isCompleted,
+  isDetail,
+  REGISTER,
+}: CheckItemProps) => {
   const { mutate: patchTodo } = usePatchTodo();
   const router = useRouter();
+  const { register } = useFormContext();
+
   return (
     <CheckItemContainer isCompleted={isCompleted} isDetail={isDetail}>
       <Image
@@ -20,10 +29,17 @@ const CheckItem = ({ id, name, isCompleted, isDetail }: CheckItemProps) => {
           patchTodo({ id: id, data: { isCompleted: !isCompleted } })
         }
       />
-      {isDetail ? (
-        <input defaultValue={name} />
+      {isDetail && REGISTER ? (
+        <input
+          defaultValue={name}
+          {...register(REGISTER, {
+            required: true,
+          })}
+        />
       ) : (
-        <section onClick={() => router.push(`/item/${id}`)}>{name}</section>
+        <section onClick={() => (window.location.href = `/item/${id}`)}>
+          {name}
+        </section>
       )}
     </CheckItemContainer>
   );

@@ -35,6 +35,7 @@ const SearchBar = ({ handleSearchSubmit, REGISTER }: SearchBarProps) => {
         icon={todos.length === 0 ? 'plus-white' : 'plus-black'}
         buttonIconSize={16}
         borderRadius="50px"
+        border={true}
         borderShadow={true}
         onClick={handleSearchSubmit}
       />

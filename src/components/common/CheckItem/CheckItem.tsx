@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { CheckItemContainer } from './CheckItem.style';
 import { CheckItemProps } from './CheckItem.type';
 import { usePatchTodo } from '@/hooks/usePatchTodo';
-import { useRouter } from 'next/navigation';
 import { useFormContext } from 'react-hook-form';
 
 const CheckItem = ({
@@ -15,7 +14,6 @@ const CheckItem = ({
   REGISTER,
 }: CheckItemProps) => {
   const { mutate: patchTodo } = usePatchTodo();
-  const router = useRouter();
   const { register } = useFormContext();
 
   return (

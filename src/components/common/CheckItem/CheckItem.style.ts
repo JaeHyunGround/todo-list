@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { StyledCheckList } from './ChexkList.type';
+import { StyledCheckItem } from './ChexkItem.type';
 
-export const CheckItem = styled.section<StyledCheckList>`
+export const CheckItemContainer = styled.section<StyledCheckItem>`
   height: 50px;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-400);
@@ -16,7 +16,7 @@ export const CheckItem = styled.section<StyledCheckList>`
     props.isCompleted ? 'var(--violet-100)' : 'var(--white)'};
   margin: 16px 0 8px 0;
   padding: 0 12px;
-  cursor: pointer;
+  cursor: ${(props) => (props.isDetail ? 'default' : 'pointer')};
 
   > img {
     margin-right: 16px;

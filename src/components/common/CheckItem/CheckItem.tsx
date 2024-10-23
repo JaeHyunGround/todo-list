@@ -1,16 +1,16 @@
 'use client';
 
 import Image from 'next/image';
-import { CheckItem } from './CheckList.style';
-import { CheckListProps } from './ChexkList.type';
+import { CheckItemContainer } from './CheckItem.style';
+import { CheckItemProps } from './ChexkItem.type';
 import { usePatchTodo } from '@/hooks/usePatchTodo';
 import { useRouter } from 'next/navigation';
 
-const CheckList = ({ id, name, isCompleted, isDetail }: CheckListProps) => {
+const CheckItem = ({ id, name, isCompleted, isDetail }: CheckItemProps) => {
   const { mutate: patchTodo } = usePatchTodo();
   const router = useRouter();
   return (
-    <CheckItem isCompleted={isCompleted} isDetail={isDetail}>
+    <CheckItemContainer isCompleted={isCompleted} isDetail={isDetail}>
       <Image
         src={isCompleted ? '/icons/todoDone.png' : '/icons/todoDefault.png'}
         alt="check marker"
@@ -25,8 +25,8 @@ const CheckList = ({ id, name, isCompleted, isDetail }: CheckListProps) => {
       ) : (
         <section onClick={() => router.push(`/item/${id}`)}>{name}</section>
       )}
-    </CheckItem>
+    </CheckItemContainer>
   );
 };
 
-export default CheckList;
+export default CheckItem;

@@ -1,11 +1,11 @@
-export interface CheckListProps {
+export interface CheckItemProps {
   id: number;
   name: string;
   isCompleted: boolean;
   isDetail: boolean;
 }
 
-export interface StyledCheckList {
+export interface StyledCheckItem {
   isCompleted: boolean;
   isDetail: boolean;
 }

@@ -5,7 +5,7 @@ import { TodoListContainer, TodoListEmpty } from './TodoList.style';
 import { TodoListProps } from './TodoList.type';
 import { useViewport } from '@/hooks/useViewport';
 import { breakpoints } from '@/constants/breakpoints';
-import { CheckList } from '../common';
+import { CheckItem } from '../common';
 
 const TodoList = ({ type, data }: TodoListProps) => {
   const { viewportWidth } = useViewport();
@@ -38,7 +38,7 @@ const TodoList = ({ type, data }: TodoListProps) => {
         </TodoListEmpty>
       ) : (
         data?.map((todo) => (
-          <CheckList
+          <CheckItem
             key={todo.id}
             id={todo.id!}
             name={todo.name}

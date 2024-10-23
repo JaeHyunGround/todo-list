@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledCheckItem } from './ChexkItem.type';
+import { StyledCheckItem } from './CheckItem.type';
 
 export const CheckItemContainer = styled.section<StyledCheckItem>`
   height: 50px;

@@ -3,6 +3,7 @@ export interface CheckItemProps {
   name: string;
   isCompleted: boolean;
   isDetail: boolean;
+  REGISTER?: string;
 }
 
 export interface StyledCheckItem {

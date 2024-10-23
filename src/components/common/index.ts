@@ -1,4 +1,4 @@
 export { default as Button } from './Button/Button';
 export { default as Input } from './Input/Input';
-export { default as CheckList } from './CheckList/CheckList';
+export { default as CheckItem } from './CheckItem/CheckItem';
 export { default as Spinner } from './Spinner/Spinner';

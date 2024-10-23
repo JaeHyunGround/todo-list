@@ -6,6 +6,13 @@ export const fetchTodos = async () => {
   return response.data;
 };
 
+export const fetchTodoDetail = async (todoId: number) => {
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/items/${todoId}`
+  );
+  return response.data;
+};
+
 export const addTodo = async (todo: PostTodoItem) => {
   const response = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/items`,

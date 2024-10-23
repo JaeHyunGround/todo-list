@@ -28,3 +28,10 @@ export const patchTodo = async (id: number, todo: PatchTodoItem) => {
   );
   return response.data;
 };
+
+export const deleteTodo = async (todoId: string) => {
+  const response = await axios.delete(
+    `${process.env.NEXT_PUBLIC_API_URL}/items/${todoId}`
+  );
+  return response.data;
+};

@@ -4,12 +4,9 @@ import { useViewport } from '@/hooks/useViewport';
 import { HeaderContainer, HeaderWrapper } from './Header.style';
 import { breakpoints } from '@/constants/breakpoints';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
   const { viewportWidth } = useViewport();
-  const router = useRouter();
-  const pathname = usePathname();
 
   return (
     <HeaderWrapper>
@@ -23,9 +20,7 @@ const Header = () => {
           alt="logo"
           width={viewportWidth > breakpoints.mobile ? 151 : 71}
           height={40}
-          onClick={
-            pathname === '/' ? () => router.refresh() : () => router.push('/')
-          }
+          onClick={() => (window.location.href = '/')}
         />
       </HeaderContainer>
     </HeaderWrapper>

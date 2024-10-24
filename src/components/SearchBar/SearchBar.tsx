@@ -9,18 +9,34 @@ import { useFormContext } from 'react-hook-form';
 import useTodoStore from '@/stores/todoStore';
 
 const SearchBar = ({ handleSearchSubmit, REGISTER }: SearchBarProps) => {
-  const { register, handleSubmit } = useFormContext();
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useFormContext();
   const todos = useTodoStore((state) => state.todos);
 
   const { viewportWidth } = useViewport();
+  const SearchSubmit = () => {
+    if (!errors[REGISTER]?.message && getValues(REGISTER).length !== 0) {
+      handleSearchSubmit();
+    } else {
+      alert('할 일은 2글자 이상 입력 해주세요');
+    }
+  };
 
   return (
     <SearchBarContainer>
-      <SearchBarForm onSubmit={handleSubmit(handleSearchSubmit)}>
+      <SearchBarForm onSubmit={handleSubmit(SearchSubmit)}>
         <input
           placeholder="할 일을 입력해주세요."
           {...register(REGISTER, {
             required: true,
+            minLength: {
+              value: 2,
+              message: '최소 2글자 이상 입력해주세요',
+            },
           })}
         />
       </SearchBarForm>
@@ -37,7 +53,7 @@ const SearchBar = ({ handleSearchSubmit, REGISTER }: SearchBarProps) => {
         borderRadius="50px"
         border={true}
         borderShadow={true}
-        onClick={handleSearchSubmit}
+        onClick={SearchSubmit}
       />
     </SearchBarContainer>
   );

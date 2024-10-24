@@ -19,10 +19,10 @@ const SearchBar = ({ handleSearchSubmit, REGISTER }: SearchBarProps) => {
 
   const { viewportWidth } = useViewport();
   const SearchSubmit = () => {
-    if (!errors[REGISTER]?.message && getValues(REGISTER).length !== 0) {
+    if (!errors[REGISTER]?.message && getValues(REGISTER).trim().length !== 0) {
       handleSearchSubmit();
     } else {
-      alert('할 일은 2글자 이상 입력 해주세요');
+      alert('할 일은 1글자 이상 입력 해주세요');
     }
   };
 
@@ -34,8 +34,8 @@ const SearchBar = ({ handleSearchSubmit, REGISTER }: SearchBarProps) => {
           {...register(REGISTER, {
             required: true,
             minLength: {
-              value: 2,
-              message: '최소 2글자 이상 입력해주세요',
+              value: 1,
+              message: '최소 1글자 이상 입력해주세요',
             },
           })}
         />
